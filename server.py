@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask import render_template
 import json
 import pickle
 import numpy as np
@@ -9,6 +10,10 @@ app = Flask(__name__)
 __locations = None
 __data_columns = None
 __model = None
+
+@app.route("/")
+def html_Calling():
+    return render_template('app.html')
 
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
